@@ -3,6 +3,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 import {getOrderList} from "../../../fetch/user/orderlist";
 import OrderListComment from '../../../components/OrderList';
+import {postComment} from "../../../fetch/user/orderlist";
 
 import './style.less';
 
@@ -15,7 +16,7 @@ class OrderList extends Component {
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
 
         const userinfo = this.props.userinfo;
         if (userinfo.username) {
@@ -40,11 +41,25 @@ class OrderList extends Component {
         })
     }
 
+    submitComment(id, value, callback) {
+        const result = postComment(id, value);
+        result.then(res => {
+            return res.json();
+        }).then(json => {
+            if (json.error === 0) {
+                callback();
+            }
+        })
+    }
+
     render() {
         return (
             <div className="order-list-container">
                 <h2>您的订单</h2>
-                <OrderListComment data={this.state.data}/>
+                {
+                    this.state.data.length ?
+                        <OrderListComment data={this.state.data} submitComment={this.submitComment.bind(this)}/> : ''
+                }
             </div>
         )
     }

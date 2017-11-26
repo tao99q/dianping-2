@@ -31,7 +31,7 @@ class Login extends Component {
         const params = this.props.match.params;
         const backRouter = params.router;
         if (backRouter) {
-            this.props.history.push(backRouter);
+            this.props.history.push(decodeURIComponent(backRouter));
         } else {
             this.goUserPage();
         }

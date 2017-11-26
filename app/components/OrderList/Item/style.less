@@ -2,6 +2,21 @@
   padding: 10px 0;
   border-bottom: 1px solid #f1f1f1;
 
+  .btn {
+    width: 80px;
+    text-align: center;
+    background-color: rgb(233, 32, 61);
+    color: #fff;
+    padding: 5px 0;
+    border: 0;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+
+  .unselected-btn {
+    background-color: #999;
+  }
+
   .order-item-img {
     width: 120px;
     height: 90px;
@@ -10,6 +25,13 @@
       height: 100%;
     }
   }
+
+  .order-item-comment {
+    width: 100px;
+    text-align: right;
+
+  }
+
   .order-item-content {
     margin: 0 130px;
     span {
@@ -19,18 +41,10 @@
       line-height: 1.5;
     }
   }
-  .order-item-comment {
-    width: 100px;
-    text-align: right;
-  }
-  .btn {
-    width: 80px;
-    text-align: center;
-    background-color: rgb(231,32,64);
-    color: #ffff;
-    padding: 5px 0;
-    border: 0;
-    border-radius: 3px;
-    font-size: 16px;
+  .comment-text-container {
+    margin-top: 10px;
+    .comment-text {
+      border: 1px solid #f1f1f1;
+    }
   }
 }

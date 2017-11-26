@@ -6,6 +6,7 @@ import City from '../containers/City';
 import Search from '../containers/Search';
 import Login from '../containers/Login';
 import User from '../containers/User';
+import Detail from '../containers/Detail';
 
 class SubRouter extends Component {
     constructor(pops) {
@@ -20,6 +21,8 @@ class SubRouter extends Component {
                 <Route path="/search/:category/:keyword?" component={Search}/>
                 <Route path="/login/:router?" component={Login}/>
                 <Route path="/user" component={User}/>
+                <Route path="/detail/:id?" component={Detail}/>
+
             </Switch>
         )
     }
